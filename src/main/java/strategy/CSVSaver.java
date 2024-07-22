@@ -1,16 +1,17 @@
-package model;
+package strategy;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.opencsv.CSVWriter;
-import com.opencsv.bean.HeaderColumnNameMappingStrategy;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
+import model.CustomCSVWriterStrategy;
+import model.Person;
 
 public class CSVSaver implements FileSaver {
     @Override
@@ -34,13 +35,5 @@ public class CSVSaver implements FileSaver {
     @Override
     public String toString() {
         return "CSV";
-    }
-}
-
-class CustomCSVWriterStrategy<T> extends HeaderColumnNameMappingStrategy<T> {
-    @Override
-    public String[] generateHeader(T bean) throws CsvRequiredFieldEmptyException {
-        String[] header = super.generateHeader(bean);
-        return Arrays.stream(header).map(String::toLowerCase).toArray(String[]::new);
     }
 }

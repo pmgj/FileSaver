@@ -1,8 +1,10 @@
-package model;
+package strategy;
 
 import java.io.FileWriter;
 
 import javax.json.bind.JsonbBuilder;
+
+import model.Person;
 
 public class JSONSaver implements FileSaver {
     @Override

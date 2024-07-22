@@ -1,9 +1,10 @@
-package model;
+package strategy;
 
 import java.io.FileOutputStream;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
+import model.Person;
 
 public class XMLSaver implements FileSaver {
     @Override
